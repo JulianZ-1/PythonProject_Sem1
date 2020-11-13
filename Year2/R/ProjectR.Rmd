@@ -1,0 +1,328 @@
+---
+title: "Project_R"
+author: "JiYanZhu"
+date: "10/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+First, clean the workspace(Please run this line when its your first time using the program)
+
+```{r}
+rm(list=ls())
+```
+
+
+##Used Libaries
+##The report followed the format suggested by https://www.kaggle.com/upadorprofzs/basic-visualization-techniques
+```{r libraries, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+library(tidyverse)
+library(ggridges)
+library(ggthemes)
+library(cowplot)
+library(viridis)
+library(GGally)
+library(plotrix)
+library(car)
+library(egg)
+library(party)
+library(e1071)
+library(rpart)
+library(kknn)
+library(caret)
+```
+
+## Loading data into R
+```{r}
+data <- read.csv(file.choose(),header = TRUE);
+
+data
+
+```
+
+
+##Cleaning data
+
+```{R}
+
+str(data)
+```
+```{r}
+
+data %>%
+  mutate(
+    sex = factor(sex, levels = c(0,1), labels = c("Female", "Male")),
+    smoking = factor(smoking, levels = c(0,1), labels = c("Yes", "No")),
+    diabetes = factor(diabetes, levels = c(0,1), labels = c("No", "Yes")),
+    anaemia = factor(anaemia, levels = c(0,1), labels = c("No", "Yes")),
+    high_blood_pressure = factor(high_blood_pressure, levels = c(0,1), labels = c("No", "Yes")),
+    DEATH_EVENT = factor(DEATH_EVENT, levels = c(0,1), labels = c("No", "Yes"))
+  ) -> data.clean
+saveRDS(data.clean, "data.clean.RDS")
+```
+
+```{r}
+str(data.clean)
+
+```
+```{r}
+
+summary(data.clean)
+attach(data.clean)
+```
+
+##small graph
+```{R}
+age_cases_gg <- ggplot(data.clean, aes(DEATH_EVENT, age , fill = DEATH_EVENT)) +
+            geom_violin(trim = FALSE)+
+            geom_boxplot(width = 0.1, fill = "white")+
+            labs(title = "Age at the Time of Heart Attack and Result",
+            y = "Number of Cases",
+            x = "Person's Age") + 
+            theme(legend.position = "top")+
+            scale_fill_discrete(name = "Lead to death", labels = c("No","Yes"))+         theme_classic()
+
+anaemia_gg <- ggplot(data = data.clean,  aes(x = DEATH_EVENT, fill = anaemia)) + geom_bar(position = "fill") +
+  labs(title = "Anaemia and Heart Failure", y = "Percentage", x = "Anemia Status") +  scale_fill_discrete(name = "Heart Failure Resulted in Death") +
+  theme_classic()
+ 
+cp_gg <- ggplot(data = data.clean, aes(creatinine_phosphokinase, fill = DEATH_EVENT))+
+    geom_histogram(binwidth = 100)+
+    labs(title = "Creatinine Phosphokinase stats when Heart started to Fail ",
+        y = "Count",
+        x = "Creatinine Phosphokinase")+
+    scale_fill_discrete(name = "Heart Failure Resulted in Death", labels = c("No","Yes"))+
+    xlim(0,2900) + theme_classic()
+
+diabetes_gg <- ggplot(data = data.clean,  aes(x = DEATH_EVENT, fill = diabetes)) + geom_bar(position = "fill")+
+  labs(title = "Diabetes and Heart Failure", y = "Percentage", x = "Diabetes") + scale_fill_discrete(name = "Heart Failure Resulted in Death") + 
+  theme_classic()
+
+ef_gg <- ggplot(data = data.clean, aes(ejection_fraction, fill = DEATH_EVENT))+
+    geom_histogram(binwidth = 2)+
+    labs(title = "Ejection Fraction stats when Heart started to Fail",
+        y = "Count",
+        x = "Ejection fraction")+
+    scale_fill_discrete(name = "Heart Failure Resulted in Death", labels = c("No","Yes")) + theme_classic()
+
+sex_gg <- ggplot(data = data.clean,  aes(x = DEATH_EVENT, fill = sex)) + geom_bar(position = "fill") +
+  labs(title = "Gender and Heart Failure", y = "Percentage", x = "Gender") + scale_fill_discrete(name = "Gender Comparison") +
+  theme_classic()
+
+smoke_gg <- ggplot(data = data.clean,  aes(x = DEATH_EVENT, fill = smoking)) + geom_bar(position = "fill")+
+  labs(title = "Smoking and Heart Failure", y = "Percentage", x = "Smoking Status") + scale_fill_discrete(name = "Heart Failure Resulted in Death") +
+  theme_classic()
+
+hb_gg <- ggplot(data = data.clean,  aes(x = DEATH_EVENT, fill = high_blood_pressure)) + geom_bar(position = "fill")+
+  labs(title = "High Blood pressure and Heart Failure", y = "Percentage", x = "High Blood Pressure Status") + scale_fill_discrete(name = "Heart Failure Resulted in Death") + theme_classic()
+
+platelets_gg <- ggplot(data.clean, aes(DEATH_EVENT, platelets, fill = DEATH_EVENT)) +
+            geom_violin(trim = FALSE)+
+            geom_boxplot(width = 0.1, fill = "white")+
+            labs(title = "Number of Platelets When Heart Start to Fail",
+            y = "Number of Platelets",
+            x = "Lead to death") + 
+            scale_fill_discrete(name = "Lead to death", labels = c("No","Yes")) + theme_classic()
+
+scr_gg <- ggplot(data = data.clean, aes(serum_creatinine, fill = DEATH_EVENT))+
+    geom_histogram(binwidth = 0.1)+
+    labs(title = "Serum Creatinine stats when Heart started to Fail",
+        y = "Count",
+        x = "Serum Creatinine")+
+    scale_fill_discrete(name = "Heart Failure Resulted in Death", labels = c("No","Yes")) + xlim(0,4)+ theme_classic()
+
+sso_gg <- ggplot(data = data.clean, aes(serum_sodium, fill = DEATH_EVENT))+
+    geom_histogram(binwidth = 1)+
+    labs(title = "Serum Sodium stats when Heart started to Fail",
+        y = "Count",
+        x = "Serum Sodium")+
+    scale_fill_discrete(name = "Heart Failure Resulted in Death", labels = c("No","Yes"))+ theme_classic()
+
+time_gg <- ggplot(data.clean, aes(DEATH_EVENT, time, fill = DEATH_EVENT)) +
+            geom_violin(trim = FALSE)+
+            geom_boxplot(width = 0.1, fill = "white")+
+            labs(title = "Time takes to save ",
+            y = "Times take",
+            x = "Lead to death") + 
+            scale_fill_discrete(name = "Lead to death", labels = c("No","Yes")) + theme_classic()
+```
+
+
+```{r}
+## http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization Reference
+anaemia_gg
+diabetes_gg
+hb_gg
+sex_gg
+smoke_gg
+```
+
+```{r}
+## http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guide-r-software-and-data-visualization Reference
+cp_gg
+ef_gg
+scr_gg
+sso_gg
+```
+
+```{r}
+# http://www.sthda.com/english/wiki/ggplot2-violin-plot-quick-start-guide-r-software-and-data-visualization Reference
+platelets_gg
+time_gg
+age_cases_gg
+```
+
+
+
+```{R}
+
+de.glm2 <- glm(DEATH_EVENT~., data = data.clean, family="binomial")
+summary(de.glm2)
+
+
+```
+
+```{r}
+log_data <- data.clean %>% 
+  select(age, ejection_fraction, serum_creatinine, serum_sodium,time)
+```
+
+
+```{r}
+de.glm3 <- glm(DEATH_EVENT~., data = log_data, family="binomial")
+summary(de.glm3)
+```
+
+
+```{r}
+vif(de.glm3)
+
+```
+```{r}
+
+tibble(
+    prob.of.death =de.glm3$fitted.values, # Extracts the predicted probabilities of
+    DEATH_EVENT         =data.clean$DEATH_EVENT
+) -> de.glm3.predictions
+
+de.glm3.predictions %>%
+  arrange(prob.of.death) %>% 
+  mutate(index=row_number()) -> de.glm3.ranked.pred
+
+```
+
+```{r}
+
+ggplot(data=de.glm3.ranked.pred, aes(x=index, y=prob.of.death)) + 
+  geom_point(aes(color=DEATH_EVENT)) -> p
+
+p
+```
+
+
+```{r}
+p +
+  geom_rug(data=filter(de.glm3.ranked.pred, DEATH_EVENT=="Yes"), sides="b", aes(color=DEATH_EVENT)) +
+  geom_rug(data=filter(de.glm3.ranked.pred, DEATH_EVENT!="Yes"), sides="t", aes(color=DEATH_EVENT)) +
+  labs(
+    title="Predicted probability of Dying",
+    x= "index",
+    y="Predicted probability of dying"
+    )+
+  scale_color_discrete(name="Fatality") +
+  # http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/#changing-the-position-of-the-legend
+  theme(legend.justification=c(1,0), legend.position=c(0.95,0.05), aspect.ratio=1)
+
+```
+
+
+```{r}
+simple.roc <- function(labels, scores){
+  ordered.scores <- order(scores, decreasing=TRUE)
+  labels <- labels[ordered.scores]
+  tibble(
+    TPR=c(0,cumsum(labels))/sum(labels),
+    FPR=c(0,cumsum(!labels))/sum(!labels),
+    labels=c(NA,labels),
+    score=c(Inf, scores[ordered.scores])
+  )
+}
+```
+
+```{r}
+de.glm3.ranked.pred.ROC <- simple.roc(de.glm3.predictions$DEATH_EVENT=="Yes", de.glm3.predictions$prob.of.death)
+```
+
+```{r}
+
+diagonal <- data.frame(FPR=c(0,1), TPR=c(0,1))
+
+ggplot(data=de.glm3.ranked.pred.ROC, aes(x=FPR, y=TPR)) +
+  geom_step() +
+  coord_equal(xlim=c(0,1), ylim=c(0,1)) +
+  geom_line(data=diagonal, lty=2) +
+  labs(xlab="False Positive Rate (FPR)", ylab="True Positive Rate (TPR)")
+
+
+```
+```{r}
+wilcox.test(prob.of.death ~ DEATH_EVENT, data=de.glm3.predictions)
+```
+```{r}
+U <- wilcox.test((1 - prob.of.death) ~ DEATH_EVENT, data=de.glm3.predictions)$statistic
+names(U) <- "Mann-Whitney U statistic"
+P <- with(de.glm3.predictions, sum(DEATH_EVENT=="Yes"))
+N <- with(de.glm3.predictions, sum(DEATH_EVENT!="Yes"))
+U/(P*N)
+```
+
+
+
+```{R}
+
+set.seed(123)
+
+
+```
+
+```{r}
+ind <- sample(2, nrow(data.clean), replace=TRUE, prob=c(0.7, 0.3))
+train_data1 <- data.clean[ind==1,]
+test_data1 <- data.clean[ind==2,]
+
+```
+
+
+```{r}
+formula <- DEATH_EVENT ~ .
+
+death_tree <- ctree(formula, data = train_data1)
+
+plot(death_tree)
+
+```
+
+```{r}
+
+table(predict(death_tree, newdata = test_data1), test_data1$DEATH_EVENT)
+
+
+
+```
+```{R}
+
+confusionMatrix(predict(death_tree, newdata = test_data1), test_data1$DEATH_EVENT)
+```
