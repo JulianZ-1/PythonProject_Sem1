@@ -1,0 +1,14 @@
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.csproj.AssemblyReference.cache
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.AssemblyInfoInputs.cache
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.AssemblyInfo.cs
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.csproj.CoreCompileInputs.cache
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.exe
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.deps.json
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.runtimeconfig.json
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.runtimeconfig.dev.json
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.dll
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\bin\Debug\netcoreapp3.1\Csharpthreads.pdb
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.dll
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.pdb
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week4\C#threads\Csharpthreads\Csharpthreads\obj\Debug\netcoreapp3.1\Csharpthreads.genruntimeconfig.cache
