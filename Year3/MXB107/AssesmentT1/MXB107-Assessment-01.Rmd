@@ -227,9 +227,7 @@ b.    What is the probability that a randomly selected episode of _Star Trek_ wi
 
 ##  data(episodes)
 
-length(episodes$Bechdel.Wallace.Test[episodes$Bechdel.Wallace.Test==TRUE])
-length(episodes$Bechdel.Wallace.Test[episodes$Bechdel.Wallace.Test==FALSE])
-
+table(episodes$Bechdel.Wallace.Test)
 366 / 704
 
 ```
@@ -261,8 +259,15 @@ b.    What is the probability that an original series episode passes the Bechdel
 
 ##  If after loading the library if the dataset episodes not available, type:
 
-##  data(episodes)
-sum()
+typeof(episodes$Series)
+
+table(episodes$Series)
+
+tos = 80/704
+episodes[which(episodes$Bechdel.Wallace.Test == FALSE & episodes$Series=='TOS'),]
+bwfalse = 75/704
+
+tos*bwfalse
 
 ```
 
