@@ -1,0 +1,559 @@
+---
+title: "MXB107 Assessment 1"
+author: "JiYan Zhu"
+date: "Semester 2 2021"
+output:
+  html_document:
+    df_print: paged
+  html_notebook:
+    theme: yeti
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(  fig.align = 'center', fig.fullwidth=TRUE)
+opts <- options(knitr.kable.NA = "")
+options(htmltools.dir.version = FALSE)
+library(MXB107)
+library(gridExtra)
+```
+
+```{css, echo = FALSE}
+.box {
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom:20px
+}
+```
+
+<p align = "center">***NOTE THIS ASSESSMENT IS DUE ON 5 September BY 11:59 PM.***</p>
+
+\
+**For this Assessment we will use the following dataset:**
+
+**The dataset**   `episodes` **included in the MXB107 package for R contains records for 704 episodes of the _Star Trek_ aired between 1966 and 2005.  (Type** `?episodes` **for a detailed description of the data.)**
+
+## Part 1: Summarising Data
+
+### Question 1
+
+a.    Name three principles for good practice when creating graphical summaries of data. 
+
+:::{.box}
+**Type your answer here:**\
+1. Always have a title for your graphical summary. The titles should accurately describe the variables and the relationship shown in the summry.
+  If one of the axes is time or the data is for a specific period, that should be in the title.
+2. Clearly label the axes and include units.
+3. When comparing two data sets, the axes for each summary should be match.
+
+:::
+b.    Identify three elements of the following graphical summary of data that should be corrected. 
+```{r,warning = FALSE, echo=FALSE}
+plot1 <- ggplot(episodes %>% filter(Series == "TOS"),aes(x = IMDB.Ranking))+
+  geom_histogram(bins = 13)+xlab("")
+
+plot2 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = IMDB.Ranking))+
+   geom_histogram(bins = 13)+xlab("")
+
+ grid.arrange(plot1, plot2, ncol=2)
+
+```
+
+:::{.box}
+**Type your answer here:**\
+
+1. Cut the cars    
+2. Add title and buttom
+3. draw a line?
+:::
+
+c.    Create a set of boxplots showing the IMDB rankings for each series of _Star Trek_.  Discuss the results. 
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+data(episodes)
+boxplot(IMDB.Ranking~Series, data = episodes, main = "Compare Rating for all Star Trek series",
+        xlab = "Series name", ylab = "Rating", col = "red", border = "brown")
+```
+
+:::{.box}
+**Type your answer here:**
+Box plot shows six things that the reader can easily pick up, those are The minimum(which is the bottom of the line), Q1 and Q3(The size of the box from the bottom to the top), median(the middle line inside the box), maximum (at the top of the line), and the outlines(circles that is not on the line).
+:::
+
+d.    Create a pair of histograms comparing the IMDB rankings for episodes of _Star Trek: The Next Generation_ that pass the Bechdel-Wallace Test versus those that failed. Discuss the results. 
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+<!-- Graphical Methods -->
+
+### Question 2
+
+a.    Identify and define three numerical summaries of centrality for data.
+
+:::{.box}
+**Type your answer here:**
+
+1. Mean    
+2. Median
+3. Mode
+:::
+
+b.  Identify and define three numerical summaries of dispersion for data.
+
+:::{.box}
+**Type your answer here:**
+
+1. Range     
+2. Variance
+3. Standard Deviation
+:::
+
+###   Question 3
+
+a.    For all 704 episodes of _Star Trek_ compute the standard deviation of their IMDB rankings using the definition of standard deviation and then use the empirical rule to estimate the standard deviation.  Compare and discuss the results.
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+x <- c(episodes$IMDB.Ranking)
+s <- sd(x)
+xbar <- mean(x)
+s
+xbar+2*s
+x_bar-2*s
+
+hist(x)
+
+```
+
+:::{.box}
+**Type your answer here:**
+standard deviation is 0.78
+
+:::
+
+b.    For all 704 episodes of _Star Trek_ compute the mean and median of their IMDB rankings.  Do the data appear to be skewed?  Compute the skew of the data and plot a histogram of the episodes' IMDB rankings, do they appear skewed? Compare and discuss the numerical results and the your histogram.
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+# x = as.numeric(unlist(episodes$IMDB.Ranking))
+# 
+# num<-(x-mean(x))^3%>%mean()
+# den<-sd(x)^3
+# skew<-num/den
+# mean(x)
+# median(x)
+# den
+# 
+# 
+# x = as.numeric(unlist(episodes$IMDB.Ranking))
+# hist(den~IMDB.Ranking, data = episodes)
+
+x <- c(episodes$IMDB.Ranking)
+num<-(x-mean(x))^3%>%mean()
+den<-sd(x)^3
+skew<-num/den
+skew
+```
+
+:::{.box}
+**Type your answer here:**
+data is left skewd dont know how to plot that tho
+:::
+
+## Part 2: Computing Basic Probabilities for Events
+
+###   Question 1
+
+a.    What is the classical definition of probability?
+
+:::{.box}
+**Type your answer here:**
+The definitaion of probability is that probability is a matematical tool for quantifying uncertainty. it provies the tools to compute probabilities for both simple events and compound events, and provieds the basis for modelling random variables, which are the building blocks of statistical models and statistical modelling.
+:::
+b.    What is the probability that a randomly selected episode of _Star Trek_ will pass the Bechdel-Wallace Test?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+length(episodes$Bechdel.Wallace.Test[episodes$Bechdel.Wallace.Test==TRUE])
+length(episodes$Bechdel.Wallace.Test[episodes$Bechdel.Wallace.Test==FALSE])
+
+366 / 704
+
+```
+
+:::{.box}
+**Type your answer here:**
+The chance is 52%
+:::
+
+###    Question 2
+
+a.    What is the definition of joint probability?
+
+:::{.box}
+**Type your answer here:**
+$$
+Pr(A\cup B) = Pr(A) + Pr(B) - Pr(A∩B)
+$$
+:::
+
+b.    What is the probability that an original series episode passes the Bechdel-Wallace Test?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+sum()
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+###    Question 3
+
+a.    What is the definition of conditional probability?
+b.    What is the probability that an episode fails the Bechdel-Wallace Test given that it is an episode from _Star Trek: Deep Space Nine_?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+### Question 4
+
+a.    What is Bayes' Theorem
+
+:::{.box}
+**Type your answer here:**
+$$
+Pr(B|A) = ?
+$$
+
+:::
+
+b.    Given that an episode passes the Bechdel-Wallace Test what is the probability that is was from Season 3 of _Star Trek: Voyager_
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+c.    Is this probability greater or less than the marginal probability that a randomly selected episode is from Season 3 of _Star Trek: Voyager_?  Why?
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+
+## Part 3: Modelling with Probability Distributions
+
+###   Question 1
+<!--- Geometric/NB ---->
+a.    Define a Bernoulli random variable.
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+b.    Assume I have a fair coin, What is the probability that I will need more than two coin tosses to get a "heads"?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+c.    Define a geometrically distributed random variable and Write out the probability mass distribution for a geometric probability distribution.  Define the process that gives rise to a geometrically distributed random variable in terms of Bernoulli trials.
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+d.    If the overall proportion of _Star Trek_ episodes that pass the Bechdel-Wallace Test is $0.52$ then assume I begin watching episodes selecting them at random, how many episodes do I have to watch until the probability I see at least on episode that passes the Bechdel-Wallace Test is more than 95\%?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+
+###   Question 2
+a.    I have a coin that comes up heads for a given coin toss with probability $p$.  If I toss the coin $n$ times, on average how many heads should I get?  What is the standard deviation for the random variable $X=$ number of heads in $n$ coin tosses?
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+b.    Describe the a binomial random variable in terms of Bernoulli trials.  For what value of $p$ is the variance for a binomial random variable maximised?
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+c.    What proportion of _Star Trek: The Original Series_ episodes pass the Bechdel-Wallace Test? If I select 10 episodes of _Star Trek: The Original Series_ at random, what is the probability that I will see 2 or fewer episodes that pass the Bechdel-Wallace Test?
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+d.    Now assume that I sample episodes at random from all 704 episodes of _Star Trek_ and the proportion of all episodes that pass the Bechdel-Wallace Test is $0.52$.  If I select 100 episodes at random from all the episodes of _Star Trek_ what is probability that I see less than 50 episodes that pass the Bechdel-Wallace Test.  Compute this using the binomial probability distribution, the Poisson probability distribution, and the Gaussian distribution.  Compare and contrast the results. 
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+###   Question 3
+<!--- Exponential/Poisson --->
+a.    Show that as $n\rightarrow \infty$ and $p\rightarrow 0$ the probability distribution of a random variable $X\sim Binom(n,p)$ converges to a Poisson probability distribution. 
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+b.    For _Star Trek: The Original Series_ plot the probability distribution for the number of episodes out ten that that would pass the Bechdel-Wallace Test.  Use the Binomial and the Poisson distributions.  Compare and discuss the results. 
+
+**Show your code here:**
+
+```{r}
+##  The library MXB107 should be already loaded, if not type:
+
+##  library(MXB107)
+
+##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
+
+
+```
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+c.    What is the relationship between the Poisson and Exponential probability distributions?
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+Assume that the average episode is 45 minutes long, and given the probability that a given episode has a probability of passing the Bechdel-Wallace Test of $p=0.52$, that is the equivalent $0.693$ instances of passing the Bechdel-Wallace Test per hour of _Star Trek_ viewing.    
+
+c.    If I watch ten hours of _Star Trek_ (assume the hours are completely random), what is the probability that I see more than 7 instances of passing the Bechdel-Wallace Test. 
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+d.    What is the probability that I will have to watch more than three hours to see one instance of passing the Bechdel-Wallace Test
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+
+### Question 4 
+<!--- Gaussian --->
+
+a.    Define the $Z$-score, or how we convert a Gaussian random variable to a Standard Gaussian random variable.
+
+:::{.box}
+**Type your answer here:**
+
+For $X\sim N(\mu,\sigma^2)$, 
+$$
+Z = 
+$$
+where $Z\sim N(0,1)$.
+:::
+
+b.    For $X\sim N(4.3,2.7)$ find $Pr(X>5)$
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+c.    Assume that the IMDB rankings for episodes of _Star Trek_ follow a Gaussian distribution with $\mu = 7.55$ and $\sigma^2=0.60$ based on the Gaussian distribution, what is the probability that a randomly selected episode will have an IMDB ranking of less than 7?
+
+:::{.box}
+**Type your answer here:**
+
+:::
+
+d.  Assume that the IMDB rankings for episodes of _Star Trek_ follow a Gaussian distribution with $\mu = 7.55$ and $\sigma^2=0.60$ based on the Gaussian distribution, what proportion of epsiodes have an IMDB ranking of over 7.9?  What is the actual proportion of episodes with an IMDB ranking of over 7.9? Compare your results.
+
+:::{.box}
+**Type your answer here:**
+
+:::

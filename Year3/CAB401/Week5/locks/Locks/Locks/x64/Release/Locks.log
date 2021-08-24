@@ -1,0 +1,10 @@
+﻿  Source.cpp
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week5\locks\Locks\Locks\Source.cpp(25,39): warning C4311: 'type cast': pointer truncation from 'LPVOID' to 'int'
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week5\locks\Locks\Locks\Source.cpp(25,39): warning C4302: 'type cast': truncation from 'LPVOID' to 'int'
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week5\locks\Locks\Locks\Source.cpp(59,53): warning C4312: 'type cast': conversion from 'int' to 'void *' of greater size
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week5\locks\Locks\Locks\Source.cpp(60,49): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 18 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Locks.vcxproj -> C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week5\locks\Locks\x64\Release\Locks.exe
