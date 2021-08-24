@@ -291,13 +291,17 @@ b.    What is the probability that an episode fails the Bechdel-Wallace Test giv
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
-
+table(episodes$Bechdel.Wallace.Test)
+table(episodes$Series)
+338/704
+176/704
+0.48*0.25
+0.12/0.48
 ```
 
 :::{.box}
 **Type your answer here:**
-
+The definition of conditional probability is P(B|A) = P(A∩B) / P(A)
 :::
 
 ### Question 4
@@ -307,7 +311,7 @@ a.    What is Bayes' Theorem
 :::{.box}
 **Type your answer here:**
 $$
-Pr(B|A) = ?
+Pr(B|A) = Pr(A∩B)Pr(B)/Pr(A)
 $$
 
 :::
