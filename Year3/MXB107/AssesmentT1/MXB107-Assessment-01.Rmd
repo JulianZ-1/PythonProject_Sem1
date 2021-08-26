@@ -367,6 +367,7 @@ a.    Define a Bernoulli random variable.
 
 :::{.box}
 **Type your answer here:**
+A Bernoulli random trial is an experiment with dichotomous outcome and a single probability assigned to a postive outcome
 
 :::
 
@@ -382,7 +383,7 @@ b.    Assume I have a fair coin, What is the probability that I will need more t
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
+1 - sum(dbinom(1:2, 2, 0.5))
 
 ```
 
