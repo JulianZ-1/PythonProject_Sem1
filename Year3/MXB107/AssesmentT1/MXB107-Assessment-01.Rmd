@@ -283,7 +283,7 @@ episodes %>% filter(Series =="TOS")
 
 :::{.box}
 **Type your answer here:**
-chacne is 0.6%
+chance is 0.6%
 :::
 
 ###    Question 3
@@ -406,11 +406,12 @@ c.    Define a geometrically distributed random variable and Write out the proba
 ##  data(episodes)
 
 
+
 ```
 
 :::{.box}
 **Type your answer here:**
-
+P(X=n) = [(1-p)^n-1] p  
 :::
 
 d.    If the overall proportion of _Star Trek_ episodes that pass the Bechdel-Wallace Test is $0.52$ then assume I begin watching episodes selecting them at random, how many episodes do I have to watch until the probability I see at least on episode that passes the Bechdel-Wallace Test is more than 95\%?
@@ -431,7 +432,9 @@ d.    If the overall proportion of _Star Trek_ episodes that pass the Bechdel-Wa
 
 :::{.box}
 **Type your answer here:**
+[(1-0.95)^0.52-1] *0.95 = 4
 
+0.48^3/4 < 0.05
 :::
 
 
@@ -440,6 +443,9 @@ a.    I have a coin that comes up heads for a given coin toss with probability $
 
 :::{.box}
 **Type your answer here:**
+E(x) = bp
+
+squareroot VAR
 
 :::
 
@@ -448,6 +454,7 @@ b.    Describe the a binomial random variable in terms of Bernoulli trials.  For
 :::{.box}
 **Type your answer here:**
 
+p=0.5
 :::
 
 c.    What proportion of _Star Trek: The Original Series_ episodes pass the Bechdel-Wallace Test? If I select 10 episodes of _Star Trek: The Original Series_ at random, what is the probability that I will see 2 or fewer episodes that pass the Bechdel-Wallace Test?
@@ -462,8 +469,12 @@ c.    What proportion of _Star Trek: The Original Series_ episodes pass the Bech
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
+episodes %>% filter( Series =="TOS", Bechdel.Wallace.Test=="TRUE")
+episodes %>% filter( Series =="TOS")
 
-
+a = 5/80
+a
+sum(dbinom(0:2, 10, a))
 ```
 
 :::{.box}
@@ -471,7 +482,7 @@ c.    What proportion of _Star Trek: The Original Series_ episodes pass the Bech
 
 :::
 
-d.    Now assume that I sample episodes at random from all 704 episodes of _Star Trek_ and the proportion of all episodes that pass the Bechdel-Wallace Test is $0.52$.  If I select 100 episodes at random from all the episodes of _Star Trek_ what is probability that I see less than 50 episodes that pass the Bechdel-Wallace Test.  Compute this using the binomial probability distribution, the Poisson probability distribution, and the Gaussian distribution.  Compare and contrast the results. 
+d.    Now assume that I sample episodes at random from all 704 episodes of _Star Trek_ and the proportion of all episodes that pass the Bechdel-Wallace Test is $0.52$.  If I select 100 episodes at random from all the episodes of _Star Trek_ what is probability that I see less than   50 episodes that pass the Bechdel-Wallace Test.  Compute this using the binomial probability distribution, the Poisson probability distribution, and the Gaussian distribution.  Compare and contrast the results. 
 
 **Show your code here:**
 
@@ -483,7 +494,7 @@ d.    Now assume that I sample episodes at random from all 704 episodes of _Star
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
+sum(dbinom(0:50, 100, 0.52))
 
 ```
 
