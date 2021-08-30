@@ -491,12 +491,12 @@ d.    Now assume that I sample episodes at random from all 704 episodes of _Star
 
 ##  library(MXB107)
 
-##  If after loading the library if the dataset episodes not available, type:
+##  If after loading the library===== if the dataset episodes not available, type:
 
 ##  data(episodes)
+
 sum(dbinom(0:49, 100, 0.52))
 l <- 100*0.52
-l
 sum(ppois(49,52))
 pnorm(49, 52, 5)
 ```
