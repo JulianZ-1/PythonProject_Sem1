@@ -105,14 +105,25 @@ d.    Create a pair of histograms comparing the IMDB rankings for episodes of _S
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-episodes
-plot1 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = filter(IMDB.Ranking=="Y"))+
-  geom_histogram(bins = 13)+xlab(""))
+plot1 <- ggplot(episodes %>% filter(Series == "TOS", Bechdel.Wallace.Test== TRUE),aes(x = IMDB.Ranking, y=..density..))+
+  geom_histogram(bins = 13)+xlab("IMDB Ratings")+ylab("number")+ggtitle("Passed the Test")
 
-plot2 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = IMDB.Ranking))+
-   geom_histogram(bins = 13)+xlab("")
+
+plot2 <- ggplot(episodes %>% filter(Series == "TOS", Bechdel.Wallace.Test== FALSE),aes(x = IMDB.Ranking, y=..density..))+
+  geom_histogram(bins = 13)+xlab("IMDB Ratings")+ylab("number")+ggtitle("Failed the Test")
 
  grid.arrange(plot1, plot2, ncol=2)
+ 
+ 
+ 
+ 
+ ggplot(episodes %>% filter(Series == "TOS"),aes(IMDB.Ranking))+
+  geom_histogram(aes(y=..density..),binwidth = 0.5)+
+  facet_wrap(vars(Bechdel.Wallace.Test))+
+  ylab("Density")+
+  xlab("IMDB User Ratings")+
+  ggtitle("IMDB User Ratings for Star Trek episodes\n for Passing and Failing the Bechdel-Wallace Test")+
+  theme(plot.title = element_text(hjust=0.5))
 
 ```
 
@@ -228,7 +239,7 @@ answer
 
 :::{.box}
 **Type your answer here:**
-For this question we can use probabiity rules, where Pr(A) = number of ways that A can occur, over total number of outcomes. Pr(A) = 366/704 = 0.5198864.
+For this question we can use probability rules, where Pr(A) = number of ways that A can occur, over total number of outcomes. Pr(A) = 366/704 = 0.5198864.
 
 :::
 
@@ -299,7 +310,8 @@ a)
 The definition of conditional probability is P(B|A) = P(A∩B) / P(A)
 b)
 We can apply conditional probability. P(B|A) = P(A∩B) / P(A)
-where P(A∩B) = 
+where P(A∩B) = 76/704, and P(a) is 176/704
+answer is 0.4318182
 :::
 
 ### Question 4
@@ -344,7 +356,7 @@ c.    Is this probability greater or less than the marginal probability that a r
 
 :::{.box}
 **Type your answer here:**
-
+because 
 :::
 
 
