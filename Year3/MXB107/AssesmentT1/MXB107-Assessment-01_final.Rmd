@@ -1,6 +1,6 @@
 ---
 title: "MXB107 Assessment 1"
-author: "JiYan Zhu"
+author: "Jiyan Zhu"
 date: "Semester 2 2021"
 output:
   html_document:
@@ -44,10 +44,9 @@ a.    Name three principles for good practice when creating graphical summaries 
 
 :::{.box}
 **Type your answer here:**\
-1. Always have a title for your graphical summary. The titles should accurately describe the variables and the relationship shown in the summry.
-  If one of the axes is time or the data is for a specific period, that should be in the title.
-2. Clearly label the axes and include units.
-3. When comparing two data sets, the axes for each summary should be match.
+1. Having a title is required for graphical summary. The titles should describe the variables and the relationship correctly in the summary. Furthermore, if time is the axes, or the data is for a specific period, those details should be included in the title.
+2. Clearly label the axes and must include should units    
+3. The axes should be match when comparing two sets of data.    
 
 :::
 b.    Identify three elements of the following graphical summary of data that should be corrected. 
@@ -65,9 +64,9 @@ plot2 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = IMDB.Ranking))+
 :::{.box}
 **Type your answer here:**\
 
-1.     
-2. Add title and buttom
-3. match
+1. There is no title for the graphical summary.     
+2. label is not clear and axes does not include units
+3. two data sets' axes is not matched.
 :::
 
 c.    Create a set of boxplots showing the IMDB rankings for each series of _Star Trek_.  Discuss the results. 
@@ -81,6 +80,7 @@ c.    Create a set of boxplots showing the IMDB rankings for each series of _Sta
 
 ##  If after loading the library if the dataset episodes not available, type:
 
+##  data(episodes)
 data(episodes)
 boxplot(IMDB.Ranking~Series, data = episodes, main = "Compare Rating for all Star Trek series",
         xlab = "Series name", ylab = "Rating", col = "red", border = "brown")
@@ -90,7 +90,7 @@ boxplot(IMDB.Ranking~Series, data = episodes, main = "Compare Rating for all Sta
 
 :::{.box}
 **Type your answer here:**
-Box plot shows six things that the reader can easily pick up, those are The minimum(which is the bottom of the line), Q1 and Q3(The size of the box from the bottom to the top), median(the middle line inside the box), maximum (at the top of the line), and the outlines(circles that is not on the line).
+
 :::
 
 d.    Create a pair of histograms comparing the IMDB rankings for episodes of _Star Trek: The Next Generation_ that pass the Bechdel-Wallace Test versus those that failed. Discuss the results. 
@@ -103,15 +103,16 @@ d.    Create a pair of histograms comparing the IMDB rankings for episodes of _S
 ##  library(MXB107)
 
 ##  If after loading the library if the dataset episodes not available, type:
+
+##  data(episodes)
 episodes
-plot1 <- ggplot(episodes %>% filter(Series == "TOS"),aes(x = IMDB.Ranking))+
-  geom_histogram(bins = 13)+xlab("")
+plot1 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = filter(IMDB.Ranking=="Y"))+
+  geom_histogram(bins = 13)+xlab(""))
 
 plot2 <- ggplot(episodes %>% filter(Series == "TNG"),aes(x = IMDB.Ranking))+
    geom_histogram(bins = 13)+xlab("")
 
  grid.arrange(plot1, plot2, ncol=2)
-
 
 ```
 
@@ -139,7 +140,7 @@ b.  Identify and define three numerical summaries of dispersion for data.
 :::{.box}
 **Type your answer here:**
 
-1. Range     
+1. Range    
 2. Variance
 3. Standard Deviation
 :::
@@ -160,18 +161,11 @@ a.    For all 704 episodes of _Star Trek_ compute the standard deviation of thei
 ##  data(episodes)
 x <- c(episodes$IMDB.Ranking)
 s <- sd(x)
-xbar <- mean(x)
 s
-xbar+2*s
-xbar-2*s
-
-hist(x)
-
 ```
 
 :::{.box}
 **Type your answer here:**
-standard deviation is 0.78
 
 :::
 
@@ -187,30 +181,17 @@ b.    For all 704 episodes of _Star Trek_ compute the mean and median of their I
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
-# x = as.numeric(unlist(episodes$IMDB.Ranking))
-# 
-# num<-(x-mean(x))^3%>%mean()
-# den<-sd(x)^3
-# skew<-num/den
-# mean(x)
-# median(x)
-# den
-# 
-# 
-# x = as.numeric(unlist(episodes$IMDB.Ranking))
-# hist(den~IMDB.Ranking, data = episodes)
-
 x <- c(episodes$IMDB.Ranking)
 num<-(x-mean(x))^3%>%mean()
 den<-sd(x)^3
 skew<-num/den
 skew
+
 ```
 
 :::{.box}
 **Type your answer here:**
-data is left skewd dont know how to plot that tho
+
 :::
 
 ## Part 2: Computing Basic Probabilities for Events
@@ -221,7 +202,8 @@ a.    What is the classical definition of probability?
 
 :::{.box}
 **Type your answer here:**
-The definitaion of probability is that probability is a mathematical tool for quantifying uncertainty. it provies the tools to compute probabilities for both simple events and compound events, and provieds the basis for modelling random variables, which are the building blocks of statistical models and statistical modelling.
+The Definition of probability is that the probability is a mathematical tool used for quantifying uncertainty. Probability provides tools to compute the likely hood for both simple events and compound events. Furthermore, it also provides the base for modeling random variable.
+
 :::
 b.    What is the probability that a randomly selected episode of _Star Trek_ will pass the Bechdel-Wallace Test?
 
@@ -234,17 +216,20 @@ b.    What is the probability that a randomly selected episode of _Star Trek_ wi
 
 ##  If after loading the library if the dataset episodes not available, type:
 
-data(episodes)
+##  data(episodes)
 
 table(episodes$Bechdel.Wallace.Test)
 
-episodes[episodes$Bechdel.Wallace.Test != 'TRUE',]
-
+Num_way_A = 366
+total = 704
+answer = Num_way_A/total
+answer
 ```
 
 :::{.box}
 **Type your answer here:**
-The chance is 52%
+For this question we can use probabiity rules, where Pr(A) = number of ways that A can occur, over total number of outcomes. Pr(A) = 366/704 = 0.5198864.
+
 :::
 
 ###    Question 2
@@ -254,7 +239,7 @@ a.    What is the definition of joint probability?
 :::{.box}
 **Type your answer here:**
 $$
-Pr(A\cup B) = Pr(A) + Pr(B) - Pr(A∩B)
+P(A ∪ B) = P(A) + P(B) - P(A)P( B | A )
 $$
 :::
 
@@ -269,21 +254,20 @@ b.    What is the probability that an original series episode passes the Bechdel
 
 ##  If after loading the library if the dataset episodes not available, type:
 
-typeof(episodes$Series)
-
-table(episodes$Series)
-
-episodes[which(episodes$Bechdel.Wallace.Test == TRUE & episodes$Series=='TOS'),]
+##  data(episodes)
 
 episodes %>% filter(Series =="TOS")
+episodes[which(episodes$Bechdel.Wallace.Test == TRUE & episodes$Series=='TOS'),]
+num_pass = 5
+total = 80
 
-5/80
-
+answer = num_pass / total
+answer
 ```
- m  
+
 :::{.box}
 **Type your answer here:**
-chance is 0.6%
+same as the pervious question, total number of appear over number of items. which is 0.0625
 :::
 
 ###    Question 3
@@ -306,12 +290,16 @@ table(episodes$Series)
 pAandB = 76/704
 pB = 176/704
 pAandB/pB
+
 ```
 
 :::{.box}
 **Type your answer here:**
+a)
 The definition of conditional probability is P(B|A) = P(A∩B) / P(A)
-chance is 0.43
+b)
+We can apply conditional probability. P(B|A) = P(A∩B) / P(A)
+where P(A∩B) = 
 :::
 
 ### Question 4
@@ -338,6 +326,7 @@ b.    Given that an episode passes the Bechdel-Wallace Test what is the probabil
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
+
 episodes %>% filter( Series =="VOY")
 episodes %>% filter( Series =="VOY", Season == '3', Bechdel.Wallace.Test=="TRUE")
 t1 = 17/704
@@ -355,7 +344,7 @@ c.    Is this probability greater or less than the marginal probability that a r
 
 :::{.box}
 **Type your answer here:**
-less, because the above is asking what is the probability that is true, which ca
+
 :::
 
 
@@ -367,8 +356,7 @@ a.    Define a Bernoulli random variable.
 
 :::{.box}
 **Type your answer here:**
-A Bernoulli random trial is an experiment with dichotomous outcome and a single probability assigned to a postive outcome
-
+Bernoulli random trail is a experiment with dichotomous outcome as well as single probability assigned to be a positive outcome
 :::
 
 b.    Assume I have a fair coin, What is the probability that I will need more than two coin tosses to get a "heads"?
@@ -389,7 +377,7 @@ b.    Assume I have a fair coin, What is the probability that I will need more t
 
 :::{.box}
 **Type your answer here:**
-
+we can apply the binomial probability distribution here. where to get the probability that is more than two we can subtract the probability that is less that two. the answer is 0.25.
 :::
 
 c.    Define a geometrically distributed random variable and Write out the probability mass distribution for a geometric probability distribution.  Define the process that gives rise to a geometrically distributed random variable in terms of Bernoulli trials.
@@ -404,7 +392,6 @@ c.    Define a geometrically distributed random variable and Write out the proba
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
 
 
 ```
@@ -432,8 +419,7 @@ d.    If the overall proportion of _Star Trek_ episodes that pass the Bechdel-Wa
 
 :::{.box}
 **Type your answer here:**
-[(1-0.95)^0.52-1] *0.95 = 4
-
+0.48 to the power of 5 = toss the coin 5 is <0.95. which means you need to watch 5 episodes, the next epsiode you watch will be more than 95%
 0.48^n < 1-0.95 = n=5
 :::
 
@@ -443,17 +429,15 @@ a.    I have a coin that comes up heads for a given coin toss with probability $
 
 :::{.box}
 **Type your answer here:**
-E(x) = bp
+E(X)=np and Var(X)=np(1−p).
 
 squareroot VAR
-
 :::
 
 b.    Describe the a binomial random variable in terms of Bernoulli trials.  For what value of $p$ is the variance for a binomial random variable maximised?
 
 :::{.box}
 **Type your answer here:**
-
 p=0.5
 :::
 
@@ -479,10 +463,11 @@ sum(dbinom(0:2, 10, a))
 
 :::{.box}
 **Type your answer here:**
-
+0.0625 passed the test. 
+The second question can be answered by using binomial probability distribution, where X~Binom(0 to 2, 10 episodes and the chance of pass the test)
 :::
 
-d.    Now assume that I sample episodes at random from all 704 episodes of _Star Trek_ and the proportion of all episodes that pass the Bechdel-Wallace Test is $0.52$.  If I select 100 episodes at random from all the episodes of _Star Trek_ what is probability that I see less than   50 episodes that pass the Bechdel-Wallace Test.  Compute this using the binomial probability distribution, the Poisson probability distribution, and the Gaussian distribution.  Compare and contrast the results. 
+d.    Now assume that I sample episodes at random from all 704 episodes of _Star Trek_ and the proportion of all episodes that pass the Bechdel-Wallace Test is $0.52$.  If I select 100 episodes at random from all the episodes of _Star Trek_ what is probability that I see less than 50 episodes that pass the Bechdel-Wallace Test.  Compute this using the binomial probability distribution, the Poisson probability distribution, and the Gaussian distribution.  Compare and contrast the results. 
 
 **Show your code here:**
 
@@ -491,19 +476,21 @@ d.    Now assume that I sample episodes at random from all 704 episodes of _Star
 
 ##  library(MXB107)
 
-##  If after loading the library===== if the dataset episodes not available, type:
+##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
-
 sum(dbinom(0:49, 100, 0.52))
 l <- 100*0.52
 sum(ppois(49,52))
 pnorm(49, 52, 5)
+
 ```
 
 :::{.box}
 **Type your answer here:**
-
+[1] 0.3081545
+[1] 0.3721497
+[1] 0.2742531
 :::
 
 ###   Question 3
@@ -512,7 +499,7 @@ a.    Show that as $n\rightarrow \infty$ and $p\rightarrow 0$ the probability di
 
 :::{.box}
 **Type your answer here:**
-copy from poission pmf
+Week 5 lecture reading
 :::
 
 b.    For _Star Trek: The Original Series_ plot the probability distribution for the number of episodes out ten that that would pass the Bechdel-Wallace Test.  Use the Binomial and the Poisson distributions.  Compare and discuss the results. 
@@ -527,6 +514,7 @@ b.    For _Star Trek: The Original Series_ plot the probability distribution for
 ##  If after loading the library if the dataset episodes not available, type:
 
 ##  data(episodes)
+
 episodes %>% filter( Series =="TOS", Bechdel.Wallace.Test=="TRUE")
 episodes %>% filter( Series =="TOS")
 p = 5/80
@@ -546,7 +534,7 @@ c.    What is the relationship between the Poisson and Exponential probability d
 
 :::{.box}
 **Type your answer here:**
-Poisson distribution deals with the number of occurrences in a fixed period of time, and the exponential distribution deals with the time between occurrences of successive events as time flows by continuously.
+Poisson distribution is used to deal with number of occurrences in a fixed amount of time. On the other hand, exponential distribution is used in the time between occurrences of successive events as time flow by continuously.
 :::
 
 Assume that the average episode is 45 minutes long, and given the probability that a given episode has a probability of passing the Bechdel-Wallace Test of $p=0.52$, that is the equivalent $0.693$ instances of passing the Bechdel-Wallace Test per hour of _Star Trek_ viewing.    
@@ -554,22 +542,24 @@ Assume that the average episode is 45 minutes long, and given the probability th
 c.    If I watch ten hours of _Star Trek_ (assume the hours are completely random), what is the probability that I see more than 7 instances of passing the Bechdel-Wallace Test. 
 
 :::{.box}
-**Type your answer here:**
-```{R}
+```{r}
 1 - sum(dbinom(0:7, 10, 0.693 ))
-
 ```
+**Type your answer here:**
+use binomial probability distribution again, where 1 subtract X~binom(0 to 7, ten hours, chance of passing test) to get the answer more than 7, answer is .3643265
+
 :::
 
 d.    What is the probability that I will have to watch more than three hours to see one instance of passing the Bechdel-Wallace Test
 
 :::{.box}
-**Type your answer here:**
-```{R}
-
+```{r}
 pexp(3,0.693,lower.tail = FALSE)
 
 ```
+**Type your answer here:**
+
+0.1250552
 :::
 
 
@@ -583,7 +573,7 @@ a.    Define the $Z$-score, or how we convert a Gaussian random variable to a St
 
 For $X\sim N(\mu,\sigma^2)$, 
 $$
-Z = 
+Z = Y−μ/σ∼N(0,1).
 $$
 where $Z\sim N(0,1)$.
 :::
@@ -591,35 +581,24 @@ where $Z\sim N(0,1)$.
 b.    For $X\sim N(4.3,2.7)$ find $Pr(X>5)$
 
 :::{.box}
-**Type your answer here:**
-```{R}
+```{r}
 
 pnorm(5, mean=4.3, sd=sqrt(2.7), lower.tail=FALSE)
-
 ```
+**Type your answer here:**
+0.3350516
 :::
 
 c.    Assume that the IMDB rankings for episodes of _Star Trek_ follow a Gaussian distribution with $\mu = 7.55$ and $\sigma^2=0.60$ based on the Gaussian distribution, what is the probability that a randomly selected episode will have an IMDB ranking of less than 7?
 
 :::{.box}
 **Type your answer here:**
-```{r}
 
-1 - pnorm(7, mean=7.55, sd=sqrt(0.6), lower.tail=FALSE)
-
-```
 :::
 
 d.  Assume that the IMDB rankings for episodes of _Star Trek_ follow a Gaussian distribution with $\mu = 7.55$ and $\sigma^2=0.60$ based on the Gaussian distribution, what proportion of epsiodes have an IMDB ranking of over 7.9?  What is the actual proportion of episodes with an IMDB ranking of over 7.9? Compare your results.
 
 :::{.box}
 **Type your answer here:**
-```{R}
 
-pnorm(7.9, mean=7.55, sd=sqrt(0.6), lower.tail=FALSE)
-
-
-episodes %>% filter(IMDB.Ranking > 7.9)
-
-```
 :::
