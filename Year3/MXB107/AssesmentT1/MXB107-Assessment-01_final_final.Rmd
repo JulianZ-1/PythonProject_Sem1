@@ -3,12 +3,12 @@ title: "MXB107 Assessment 1"
 author: "Jiyan Zhu"
 date: "Semester 2 2021"
 output:
-  html_document:
-    df_print: paged
+  pdf_document: default
   html_notebook:
     theme: yeti
   word_document: default
-  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}

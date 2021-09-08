@@ -1,0 +1,1501 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MXB107 Assessment 1},
+  pdfauthor={Jiyan Zhu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{MXB107 Assessment 1}
+\author{Jiyan Zhu}
+\date{Semester 2 2021}
+
+\begin{document}
+\maketitle
+
+\textbf{\emph{NOTE THIS ASSESSMENT IS DUE ON 5 September BY 11:59 PM.}}
+
+\textbf{For this Assessment we will use the following dataset:}
+
+\textbf{The dataset} \texttt{episodes} \textbf{included in the MXB107
+package for R contains records for 704 episodes of the \emph{Star Trek}
+aired between 1966 and 2005. (Type} \texttt{?episodes} \textbf{for a
+detailed description of the data.)}
+
+\hypertarget{part-1-summarising-data}{%
+\subsection{Part 1: Summarising Data}\label{part-1-summarising-data}}
+
+\hypertarget{question-1}{%
+\subsubsection{Question 1}\label{question-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Name three principles for good practice when creating graphical
+  summaries of data.
+\end{enumerate}
+
+\textbf{Type your answer here:}\\
+1. Having a title is required for graphical summary. The titles should
+describe the variables and the relationship correctly in the summary.
+Furthermore, if time is the axes, or the data is for a specific period,
+those details should be included in the title. 2. Clearly label the axes
+and must include should units\\
+3. The axes should be match when comparing two sets of data.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Identify three elements of the following graphical summary of data
+  that should be corrected.
+\end{enumerate}
+
+\begin{center}\includegraphics{MXB107-Assessment-01_final_final_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+\textbf{Type your answer here:}\\
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  There is no title for the graphical summary.\\
+\item
+  label is not clear and axes does not include units
+\item
+  two data sets' axes is not matched.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Create a set of boxplots showing the IMDB rankings for each series of
+  \emph{Star Trek}. Discuss the results.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\KeywordTok{data}\NormalTok{(episodes)}
+\KeywordTok{boxplot}\NormalTok{(IMDB.Ranking}\OperatorTok{~}\NormalTok{Series, }\DataTypeTok{data =}\NormalTok{ episodes, }\DataTypeTok{main =} \StringTok{"Compare Rating for all Star Trek series"}\NormalTok{,}
+        \DataTypeTok{xlab =} \StringTok{"Series name"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Rating"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{border =} \StringTok{"brown"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MXB107-Assessment-01_final_final_files/figure-latex/unnamed-chunk-3-1} \end{center}
+
+\textbf{Type your answer here:} Box plot shows six things that the
+reader can easily pick up, those are The minimum(which is the bottom of
+the line), Q1 and Q3(The size of the box from the bottom to the top),
+median(the middle line inside the box), maximum (at the top of the
+line), and the outlines(circles that is not on the line). overall, the
+median for all episodes are about the same, TNG has the highest epsiode
+rating, and also the lowest epsiode rating.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Create a pair of histograms comparing the IMDB rankings for episodes
+  of \emph{Star Trek: The Next Generation} that pass the Bechdel-Wallace
+  Test versus those that failed. Discuss the results.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+
+ 
+ \KeywordTok{ggplot}\NormalTok{(episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Series }\OperatorTok{==}\StringTok{ "TNG"}\NormalTok{),}\KeywordTok{aes}\NormalTok{(IMDB.Ranking))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{..density..),}\DataTypeTok{binwidth =} \FloatTok{0.5}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\KeywordTok{vars}\NormalTok{(Bechdel.Wallace.Test))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Density"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"IMDB User Ratings"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"IMDB User Ratings for Star Trek episodes}\CharTok{\textbackslash{}n}\StringTok{ for Passing and Failing the Bechdel-Wallace Test"}\NormalTok{)}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust=}\FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MXB107-Assessment-01_final_final_files/figure-latex/unnamed-chunk-4-1} \end{center}
+
+\textbf{Type your answer here:} I used Density to make sure that both
+graphs are in the same scale. There is no major difference between those
+two graphs, beside that there is a outliner for the FALSE graph(around
+3).
+
+\hypertarget{question-2}{%
+\subsubsection{Question 2}\label{question-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Identify and define three numerical summaries of centrality for data.
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Mean\\
+\item
+  Median
+\item
+  Mode
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Identify and define three numerical summaries of dispersion for data.
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Range\\
+\item
+  Variance
+\item
+  Standard Deviation
+\end{enumerate}
+
+\hypertarget{question-3}{%
+\subsubsection{Question 3}\label{question-3}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  For all 704 episodes of \emph{Star Trek} compute the standard
+  deviation of their IMDB rankings using the definition of standard
+  deviation and then use the empirical rule to estimate the standard
+  deviation. Compare and discuss the results.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(episodes}\OperatorTok{$}\NormalTok{IMDB.Ranking)}
+\NormalTok{s <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(x)}
+
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{range}\NormalTok{(x)}\OperatorTok{%>%}\KeywordTok{diff}\NormalTok{()}
+
+\NormalTok{shat<-}\StringTok{ }\NormalTok{x1}\OperatorTok{/}\DecValTok{4}
+
+\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7760457
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{shat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.475
+\end{verbatim}
+
+\textbf{Type your answer here:} standard deviation is 0.7760457, and
+esimate is 1.475 empirical is prediction on standard deviation, and the
+reason why the number is larger is due to empirical rule does not count
+outlines
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  For all 704 episodes of \emph{Star Trek} compute the mean and median
+  of their IMDB rankings. Do the data appear to be skewed? Compute the
+  skew of the data and plot a histogram of the episodes' IMDB rankings,
+  do they appear skewed? Compare and discuss the numerical results and
+  the your histogram.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(episodes}\OperatorTok{$}\NormalTok{IMDB.Ranking)}
+\NormalTok{num<-(x}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(x))}\OperatorTok{^}\DecValTok{3}\OperatorTok{%>%}\KeywordTok{mean}\NormalTok{()}
+\NormalTok{den<-}\KeywordTok{sd}\NormalTok{(x)}\OperatorTok{^}\DecValTok{3}
+\NormalTok{skew<-num}\OperatorTok{/}\NormalTok{den}
+\NormalTok{skew}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.3873874
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(episodes,  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ IMDB.Ranking))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{binwidth =}\FloatTok{0.1}\NormalTok{,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{..density..))}\OperatorTok{+}\KeywordTok{xlab}\NormalTok{(}\StringTok{"IMDB.Ranking"}\NormalTok{)}\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"IMDB.Ranking"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MXB107-Assessment-01_final_final_files/figure-latex/unnamed-chunk-6-1} \end{center}
+
+:::\{.box\} \textbf{Type your answer here:} skew is -0.3873874, which is
+left skew when looking at the graph, the graph is lean to the right
+which means left left skew the ower the skew is, the more lean to the
+left. which proven that the answer is correct
+
+\hypertarget{part-2-computing-basic-probabilities-for-events}{%
+\subsection{Part 2: Computing Basic Probabilities for
+Events}\label{part-2-computing-basic-probabilities-for-events}}
+
+\hypertarget{question-1-1}{%
+\subsubsection{Question 1}\label{question-1-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  What is the classical definition of probability?
+\end{enumerate}
+
+\textbf{Type your answer here:} The Definition of probability is that
+the probability is a mathematical tool used for quantifying uncertainty.
+Probability provides tools to compute the likely hood for both simple
+events and compound events. Furthermore, it also provides the base for
+modeling random variable.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the probability that a randomly selected episode of \emph{Star
+  Trek} will pass the Bechdel-Wallace Test?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+
+\KeywordTok{table}\NormalTok{(episodes}\OperatorTok{$}\NormalTok{Bechdel.Wallace.Test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## FALSE  TRUE 
+##   338   366
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Num_way_A =}\StringTok{ }\DecValTok{366}
+\NormalTok{total =}\StringTok{ }\DecValTok{704}
+\NormalTok{answer =}\StringTok{ }\NormalTok{Num_way_A}\OperatorTok{/}\NormalTok{total}
+\NormalTok{answer}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5198864
+\end{verbatim}
+
+\textbf{Type your answer here:} For this question we can use probability
+rules, where Pr(A) = number of ways that A can occur, over total number
+of outcomes. Pr(A) = 366/704 = 0.5198864.
+
+\hypertarget{question-2-1}{%
+\subsubsection{Question 2}\label{question-2-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  What is the definition of joint probability?
+\end{enumerate}
+
+\textbf{Type your answer here:} \[
+P(A \cap B) = Pr(A) * Pr(B)
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the probability that an original series episode passes the
+  Bechdel-Wallace Test?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Series }\OperatorTok{==}\StringTok{"TOS"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 80 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 TOS    The Origin~      1       1          7.3 The ~ 1513.1    8/9/66  
+##  2 TOS    The Origin~      1       2          7.2 Char~ 1533.6    15/9/66 
+##  3 TOS    The Origin~      1       3          7.8 Wher~ 1312.4    22/9/66 
+##  4 TOS    The Origin~      1       4          8   The ~ 1704.2    29/9/66 
+##  5 TOS    The Origin~      1       5          7.8 The ~ 1672.1    6/10/66 
+##  6 TOS    The Origin~      1       6          6.9 Mudd~ 1329.8    13/10/66
+##  7 TOS    The Origin~      1       7          7.6 What~ 2712.4    20/10/66
+##  8 TOS    The Origin~      1       8          7.1 Miri  2713.5    27/10/66
+##  9 TOS    The Origin~      1       9          7.5 Dagg~ 2715.1    3/11/66 
+## 10 TOS    The Origin~      1      10          8.2 The ~ 1512.2    10/11/66
+## # ... with 70 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{episodes[}\KeywordTok{which}\NormalTok{(episodes}\OperatorTok{$}\NormalTok{Bechdel.Wallace.Test }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\NormalTok{episodes}\OperatorTok{$}\NormalTok{Series}\OperatorTok{==}\StringTok{'TOS'}\NormalTok{),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 57
+##   Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##   <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+## 1 TOS    The Origin~      2       3          7.8 The ~ 3541.9    29/9/67 
+## 2 TOS    The Origin~      2       8          7.5 I, M~ 4513.3    3/11/67 
+## 3 TOS    The Origin~      3      18          6.3 The ~ 5725.3    31/1/69 
+## 4 TOS    The Origin~      3      21          7.2 The ~ 5818.4    28/2/69 
+## 5 TOS    The Origin~      3      24          7   Turn~ 5928.5    3/6/69  
+## # ... with 49 more variables: Bechdel.Wallace.Test <lgl>, Director <chr>,
+## #   Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>, Writer.4 <chr>,
+## #   Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num_pass =}\StringTok{ }\DecValTok{5}
+\NormalTok{total =}\StringTok{ }\DecValTok{80}
+
+\NormalTok{answer =}\StringTok{ }\NormalTok{num_pass }\OperatorTok{/}\StringTok{ }\NormalTok{total}
+\NormalTok{answer}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0625
+\end{verbatim}
+
+\textbf{Type your answer here:} same as the previous question, total
+number of appear over number of items. which is 0.0625
+
+\hypertarget{question-3-1}{%
+\subsubsection{Question 3}\label{question-3-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  What is the definition of conditional probability?
+\item
+  What is the probability that an episode fails the Bechdel-Wallace Test
+  given that it is an episode from \emph{Star Trek: Deep Space Nine}?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(Bechdel.Wallace.Test }\OperatorTok{==}\StringTok{ }\OtherTok{FALSE}\NormalTok{, Series }\OperatorTok{==}\StringTok{"DS9"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 76 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 DS9    Deep Space~      1       1          7.5 Emis~ 46379.1   3/1/93  
+##  2 DS9    Deep Space~      1       3          7.1 Past~ Unknown   10/1/93 
+##  3 DS9    Deep Space~      1       5          7   Babel 46423.7   24/1/93 
+##  4 DS9    Deep Space~      1       6          7.7 Capt~ Unknown   31/1/93 
+##  5 DS9    Deep Space~      1      11          7.2 The ~ Unknown   21/3/93 
+##  6 DS9    Deep Space~      1      12          7.1 Vort~ Unknown   18/4/93 
+##  7 DS9    Deep Space~      1      14          6.1 The ~ 46729.1   2/5/93  
+##  8 DS9    Deep Space~      2       1          7.8 The ~ Unknown   26/9/93 
+##  9 DS9    Deep Space~      2       5          7.6 Card~ 47177.2   24/10/93
+## 10 DS9    Deep Space~      2       9          6.3 Seco~ 47329.4   21/11/93
+## # ... with 66 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(episodes}\OperatorTok{$}\NormalTok{Series)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## DS9 ENT TNG TOS VOY 
+## 176  98 178  80 172
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pAandB =}\StringTok{ }\DecValTok{76}\OperatorTok{/}\DecValTok{704}
+\NormalTok{pB =}\StringTok{ }\DecValTok{176}\OperatorTok{/}\DecValTok{704}
+\NormalTok{pAandB}\OperatorTok{/}\NormalTok{pB}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4318182
+\end{verbatim}
+
+\textbf{Type your answer here:} a) The definition of conditional
+probability is P(B\textbar A) = P(A∩B) / P(A) b) We can apply
+conditional probability. P(B\textbar A) = P(A∩B) / P(A) where P(A∩B) =
+76/704, and P(a) is 176/704 answer is 0.4318182
+
+\hypertarget{question-4}{%
+\subsubsection{Question 4}\label{question-4}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  What is Bayes' Theorem
+\end{enumerate}
+
+\textbf{Type your answer here:} \[
+Pr(B|A) = Pr(A∩B)Pr(B)/Pr(A)
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Given that an episode passes the Bechdel-Wallace Test what is the
+  probability that is was from Season 3 of \emph{Star Trek: Voyager}
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{( Series }\OperatorTok{==}\StringTok{"VOY"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 172 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 VOY    Voyager          1       1          7.4 Care~ 48315.6   16/1/95 
+##  2 VOY    Voyager          1       2          7.4 Care~ 48315.6   16/1/95 
+##  3 VOY    Voyager          1       3          7.3 Para~ 48439.7   23/1/95 
+##  4 VOY    Voyager          1       4          7.2 Time~ Unknown   30/1/95 
+##  5 VOY    Voyager          1       5          7.2 Phage 48532.4   6/2/95  
+##  6 VOY    Voyager          1       6          6.6 The ~ 48546.2   13/2/95 
+##  7 VOY    Voyager          1       7          8.3 Eye ~ 48579.4   20/2/95 
+##  8 VOY    Voyager          1       8          6.7 Ex P~ Unknown   27/2/95 
+##  9 VOY    Voyager          1       9          6.8 Eman~ 48623.5   13/3/95 
+## 10 VOY    Voyager          1      10          7.4 Prim~ 48642.5   20/3/95 
+## # ... with 162 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{( Series }\OperatorTok{==}\StringTok{"VOY"}\NormalTok{, Season }\OperatorTok{==}\StringTok{ '3'}\NormalTok{, Bechdel.Wallace.Test}\OperatorTok{==}\StringTok{"TRUE"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 17 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 VOY    Voyager          3       1          8   Basi~ 50023.4   4/9/96  
+##  2 VOY    Voyager          3       3          6.9 The ~ 50156.2   18/9/96 
+##  3 VOY    Voyager          3       4          7.3 The ~ 50252.3   25/9/96 
+##  4 VOY    Voyager          3       5          6.8 Fals~ 50074.3   2/10/96 
+##  5 VOY    Voyager          3       6          7.2 Reme~ 50203.1   9/10/96 
+##  6 VOY    Voyager          3       8          8.4 Futu~ Unknown   6/11/96 
+##  7 VOY    Voyager          3      10          6.8 Warl~ 50348.1   20/11/96
+##  8 VOY    Voyager          3      11          7.4 The ~ 50384.2   27/11/96
+##  9 VOY    Voyager          3      14          6.9 Alte~ 50460.3   15/1/97 
+## 10 VOY    Voyager          3      16          7.4 Bloo~ 50537.2   5/2/97  
+## 11 VOY    Voyager          3      17          7.9 Unity 50614.2   12/2/97 
+## 12 VOY    Voyager          3      20          6.2 Favo~ 50732.4   19/3/97 
+## 13 VOY    Voyager          3      21          7.9 Befo~ Unknown   9/4/97  
+## 14 VOY    Voyager          3      22          7.5 Real~ 50836.2   23/4/97 
+## 15 VOY    Voyager          3      24          7.6 Disp~ 50912.4   7/5/97  
+## 16 VOY    Voyager          3      25          8.2 Wors~ 50953.4   14/5/97 
+## 17 VOY    Voyager          3      26          8.9 Scor~ 50984.3   21/5/97 
+## # ... with 49 more variables: Bechdel.Wallace.Test <lgl>, Director <chr>,
+## #   Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>, Writer.4 <chr>,
+## #   Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t1 =}\StringTok{ }\DecValTok{17}\OperatorTok{/}\DecValTok{704}
+\NormalTok{t2 =}\StringTok{ }\DecValTok{366}\OperatorTok{/}\DecValTok{704}
+\NormalTok{t1}\OperatorTok{/}\NormalTok{t2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04644809
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{( Series }\OperatorTok{==}\StringTok{"VOY"}\NormalTok{, Season }\OperatorTok{==}\StringTok{ '3'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 26 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 VOY    Voyager          3       1          8   Basi~ 50023.4   4/9/96  
+##  2 VOY    Voyager          3       2          7.9 Flas~ 50126.4   11/9/96 
+##  3 VOY    Voyager          3       3          6.9 The ~ 50156.2   18/9/96 
+##  4 VOY    Voyager          3       4          7.3 The ~ 50252.3   25/9/96 
+##  5 VOY    Voyager          3       5          6.8 Fals~ 50074.3   2/10/96 
+##  6 VOY    Voyager          3       6          7.2 Reme~ 50203.1   9/10/96 
+##  7 VOY    Voyager          3       7          6   Sacr~ 50063.2   30/10/96
+##  8 VOY    Voyager          3       8          8.4 Futu~ Unknown   6/11/96 
+##  9 VOY    Voyager          3       9          8.3 Futu~ 50312.6   13/11/96
+## 10 VOY    Voyager          3      10          6.8 Warl~ 50348.1   20/11/96
+## # ... with 16 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\textbf{Type your answer here:} Same as above question 0.046
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Is this probability greater or less than the marginal probability that
+  a randomly selected episode is from Season 3 of \emph{Star Trek:
+  Voyager}? Why?
+\end{enumerate}
+
+\textbf{Type your answer here:} 0.036, which is more likely. This is
+because the the passing rate on voyager season 3 is high, which result
+in higher chance of picking an episode that is passed from season 3
+voyager.
+
+\hypertarget{part-3-modelling-with-probability-distributions}{%
+\subsection{Part 3: Modelling with Probability
+Distributions}\label{part-3-modelling-with-probability-distributions}}
+
+\hypertarget{question-1-2}{%
+\subsubsection{Question 1}\label{question-1-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Define a Bernoulli random variable.
+\end{enumerate}
+
+\textbf{Type your answer here:} Bernoulli random trail is a experiment
+with dichotomous outcome as well as single probability assigned to be a
+positive outcome
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Assume I have a fair coin, What is the probability that I will need
+  more than two coin tosses to get a ``heads''?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.25
+\end{verbatim}
+
+\textbf{Type your answer here:} we can apply the binomial probability
+distribution here. where to get the probability that is more than two we
+can subtract the probability that is less that two. the answer is 0.25.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Define a geometrically distributed random variable and Write out the
+  probability mass distribution for a geometric probability
+  distribution. Define the process that gives rise to a geometrically
+  distributed random variable in terms of Bernoulli trials.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Type your answer here:} Geometric distribution is the
+probability distribution of number of failures from repeating bernoulli,
+untill the first success Let X be the number of trails until success.
+Probability mass function for X is P(X=x) = {[}(1-p)\^{}x-1{]}*p X =
+1,2,3\ldots{} X follows geometric distribution.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  If the overall proportion of \emph{Star Trek} episodes that pass the
+  Bechdel-Wallace Test is \(0.52\) then assume I begin watching episodes
+  selecting them at random, how many episodes do I have to watch until
+  the probability I see at least on episode that passes the
+  Bechdel-Wallace Test is more than 95\%?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\NormalTok{answer =}\StringTok{ }\KeywordTok{pgeom}\NormalTok{(}\DataTypeTok{q =} \DecValTok{0}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{prob =} \FloatTok{0.52}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{answer }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.5200000 0.7696000 0.8894080 0.9469158 0.9745196 0.9877694 0.9941293
+##  [8] 0.9971821 0.9986474 0.9993507 0.9996884
+\end{verbatim}
+
+\textbf{Type your answer here:} by viewing the answer by using CDF, it
+is the number 5 position, but the question is asking until which means
+-1 answer is 4.
+
+\hypertarget{question-2-2}{%
+\subsubsection{Question 2}\label{question-2-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  I have a coin that comes up heads for a given coin toss with
+  probability \(p\). If I toss the coin \(n\) times, on average how many
+  heads should I get? What is the standard deviation for the random
+  variable \(X=\) number of heads in \(n\) coin tosses?
+\end{enumerate}
+
+\textbf{Type your answer here:} E(X)=np and Var(X)=np(1−p).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Describe the a binomial random variable in terms of Bernoulli trials.
+  For what value of \(p\) is the variance for a binomial random variable
+  maximised?
+\end{enumerate}
+
+\textbf{Type your answer here:} p=0.5
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  What proportion of \emph{Star Trek: The Original Series} episodes pass
+  the Bechdel-Wallace Test? If I select 10 episodes of \emph{Star Trek:
+  The Original Series} at random, what is the probability that I will
+  see 2 or fewer episodes that pass the Bechdel-Wallace Test?
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{( Series }\OperatorTok{==}\StringTok{"TOS"}\NormalTok{, Bechdel.Wallace.Test}\OperatorTok{==}\StringTok{"TRUE"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 57
+##   Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##   <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+## 1 TOS    The Origin~      2       3          7.8 The ~ 3541.9    29/9/67 
+## 2 TOS    The Origin~      2       8          7.5 I, M~ 4513.3    3/11/67 
+## 3 TOS    The Origin~      3      18          6.3 The ~ 5725.3    31/1/69 
+## 4 TOS    The Origin~      3      21          7.2 The ~ 5818.4    28/2/69 
+## 5 TOS    The Origin~      3      24          7   Turn~ 5928.5    3/6/69  
+## # ... with 49 more variables: Bechdel.Wallace.Test <lgl>, Director <chr>,
+## #   Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>, Writer.4 <chr>,
+## #   Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{( Series }\OperatorTok{==}\StringTok{"TOS"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 80 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 TOS    The Origin~      1       1          7.3 The ~ 1513.1    8/9/66  
+##  2 TOS    The Origin~      1       2          7.2 Char~ 1533.6    15/9/66 
+##  3 TOS    The Origin~      1       3          7.8 Wher~ 1312.4    22/9/66 
+##  4 TOS    The Origin~      1       4          8   The ~ 1704.2    29/9/66 
+##  5 TOS    The Origin~      1       5          7.8 The ~ 1672.1    6/10/66 
+##  6 TOS    The Origin~      1       6          6.9 Mudd~ 1329.8    13/10/66
+##  7 TOS    The Origin~      1       7          7.6 What~ 2712.4    20/10/66
+##  8 TOS    The Origin~      1       8          7.1 Miri  2713.5    27/10/66
+##  9 TOS    The Origin~      1       9          7.5 Dagg~ 2715.1    3/11/66 
+## 10 TOS    The Origin~      1      10          8.2 The ~ 1512.2    10/11/66
+## # ... with 70 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a =}\StringTok{ }\DecValTok{5}\OperatorTok{/}\DecValTok{80}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0625
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{, a))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9789929
+\end{verbatim}
+
+\textbf{Type your answer here:} 0.0625 passed the test. The second
+question can be answered by using binomial probability distribution,
+where X\textasciitilde Binom(0 to 2, 10 episodes and the chance of pass
+the test). Which the answer is 0.9789929
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now assume that I sample episodes at random from all 704 episodes of
+  \emph{Star Trek} and the proportion of all episodes that pass the
+  Bechdel-Wallace Test is \(0.52\). If I select 100 episodes at random
+  from all the episodes of \emph{Star Trek} what is probability that I
+  see less than 50 episodes that pass the Bechdel-Wallace Test. Compute
+  this using the binomial probability distribution, the Poisson
+  probability distribution, and the Gaussian distribution. Compare and
+  contrast the results.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{dbinom}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{49}\NormalTok{, }\DecValTok{100}\NormalTok{, }\FloatTok{0.52}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3081545
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l <-}\StringTok{ }\DecValTok{100}\OperatorTok{*}\FloatTok{0.52}
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{ppois}\NormalTok{(}\DecValTok{49}\NormalTok{,}\DecValTok{52}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3721497
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DecValTok{49}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2742531
+\end{verbatim}
+
+\textbf{Type your answer here:} The correct answer to this question is
+using binomial probability distribution. Poisson's lamda is E, where E =
+np. The number 52 in gussian is 52, which is E, and E = np. The standard
+deviation is from binomail's standard deviation, which is equal to
+variance, where V = np*1-p.~standard deviation is the squar root of
+variance.
+
+The answer is Bin = 0.3081545 Pos = 0.3721497 Gussian = 0.2742531
+
+\hypertarget{question-3-2}{%
+\subsubsection{Question 3}\label{question-3-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Show that as \(n\rightarrow \infty\) and \(p\rightarrow 0\) the
+  probability distribution of a random variable \(X\sim Binom(n,p)\)
+  converges to a Poisson probability distribution.
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+let X be a random variable, X follows a binomial probability
+distribution. If define \(\lambda = np\) then the limit as \$~n
+\rightarrow \infty \$ and \(\ p \rightarrow 0\) is the Poisson
+probability distribution wirh rate \(\lambda\). the derivation will be
+
+\[
+p(x) = \frac{n!}{(n-x)!x!}\binom{ \lambda }{n}(1-\frac{\lambda}{n})^{n-x}
+\] \[
+= \frac{\lambda^x}{x!}\frac{n!}{(n-x)!}\frac{1}{n^x}(1-\frac{\lambda}{n})^{n}(1-\frac{\lambda}{n})^{-x}
+\] Since \$~n \rightarrow \infty \$ \[
+(1-\frac{\lambda}{n})^n \rightarrow e^{-\lambda} 
+\] the term \[
+\frac{\lambda^x}{x!}
+\] is constant, and the remaining tems go to 1 so \[
+p(x) = \frac{\lambda^xe^{-\lambda}}{x!}
+\] The mean and the vairnce of X are \[
+E(X) = \lambda,
+Var(X) = \lambda
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  For \emph{Star Trek: The Original Series} plot the probability
+  distribution for the number of episodes out ten that that would pass
+  the Bechdel-Wallace Test. Use the Binomial and the Poisson
+  distributions. Compare and discuss the results.
+\end{enumerate}
+
+\textbf{Show your code here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##  The library MXB107 should be already loaded, if not type:}
+
+\CommentTok{##  library(MXB107)}
+
+\CommentTok{##  If after loading the library if the dataset episodes not available, type:}
+
+\CommentTok{##  data(episodes)}
+
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
+\NormalTok{f_binom<-}\KeywordTok{dbinom}\NormalTok{(x,}\DataTypeTok{size =}\DecValTok{10}\NormalTok{, }\DataTypeTok{prob =} \FloatTok{0.5}\NormalTok{)}
+\NormalTok{f_pois <-}\StringTok{ }\KeywordTok{dpois}\NormalTok{(x,}\DataTypeTok{lambda =} \DecValTok{5}\NormalTok{)}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{rep}\NormalTok{(x,}\DecValTok{2}\NormalTok{),}\DataTypeTok{y =} \KeywordTok{c}\NormalTok{(f_binom,f_pois),}
+             \DataTypeTok{distribution =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"binomial"}\NormalTok{,}\KeywordTok{length}\NormalTok{(f_binom)),}\KeywordTok{rep}\NormalTok{(}\StringTok{"Poisson"}\NormalTok{,}\KeywordTok{length}\NormalTok{(f_pois))))}
+\KeywordTok{ggplot}\NormalTok{(df,}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x,}\DataTypeTok{y =}\NormalTok{ y))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_step}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ distribution))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{MXB107-Assessment-01_final_final_files/figure-latex/unnamed-chunk-16-1} \end{center}
+
+\textbf{Type your answer here:} Both results would get more about the
+same as n leads to infinite and p to zero. This question n is 10 which
+is very small compare to infiinite, which lead to a different result as
+binomial. The reason why if n is inifinite the result will be the same
+has already been answered on above question.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  What is the relationship between the Poisson and Exponential
+  probability distributions?
+\end{enumerate}
+
+\textbf{Type your answer here:} Poisson distribution is used to deal
+with number of occurrences in a fixed amount of time. On the other hand,
+exponential distribution is used in the time between occurrences of
+successive events as time flow by continuously.
+
+Assume that the average episode is 45 minutes long, and given the
+probability that a given episode has a probability of passing the
+Bechdel-Wallace Test of \(p=0.52\), that is the equivalent \(0.693\)
+instances of passing the Bechdel-Wallace Test per hour of \emph{Star
+Trek} viewing.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  If I watch ten hours of \emph{Star Trek} (assume the hours are
+  completely random), what is the probability that I see more than 7
+  instances of passing the Bechdel-Wallace Test.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ppois}\NormalTok{(}\DecValTok{7}\NormalTok{, }\FloatTok{6.93}\NormalTok{,}\DataTypeTok{lower=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3908572
+\end{verbatim}
+
+\textbf{Type your answer here:}
+
+we can apply poisson probability distribution here, where n = 7 and P is
+6.93 . Answer is 0.3908572
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  What is the probability that I will have to watch more than three
+  hours to see one instance of passing the Bechdel-Wallace Test
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pexp}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\OperatorTok{/}\FloatTok{0.693}\NormalTok{,}\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01318066
+\end{verbatim}
+
+\textbf{Type your answer here:}
+
+answer 0.1250552
+
+\hypertarget{question-4-1}{%
+\subsubsection{Question 4}\label{question-4-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Define the \(Z\)-score, or how we convert a Gaussian random variable
+  to a Standard Gaussian random variable.
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+For \(X\sim N(\mu,\sigma^2)\), \[
+Z = Y−μ/σ∼N(0,1).
+\] where \(Z\sim N(0,1)\).
+
+if\(E(Y) = \mu\) and \(Var(Y) = σ^2\) then \[
+E(Y) - \mu = \mu - \mu
+\] which equal to 0, and \[
+Var(Y - \mu) = σ^2
+\] \[
+Var(\frac{Y-\mu}{σ}) = \frac{1}{σ^2}Var(Y-\mu)
+\] which equal to 1, which means \[
+Z = \frac{Y-\mu}{σ}\sim N(0,1)
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  For \(X\sim N(4.3,2.7)\) find \(Pr(X>5)\)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DataTypeTok{mean=}\FloatTok{4.3}\NormalTok{, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(}\FloatTok{2.7}\NormalTok{), }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3350516
+\end{verbatim}
+
+\textbf{Type your answer here:} 0.3350516
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Assume that the IMDB rankings for episodes of \emph{Star Trek} follow
+  a Gaussian distribution with \(\mu = 7.55\) and \(\sigma^2=0.60\)
+  based on the Gaussian distribution, what is the probability that a
+  randomly selected episode will have an IMDB ranking of less than 7?
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{pnorm}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DataTypeTok{mean=}\FloatTok{7.55}\NormalTok{, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(}\FloatTok{0.6}\NormalTok{), }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2388375
+\end{verbatim}
+
+answer is 0.2388375
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Assume that the IMDB rankings for episodes of \emph{Star Trek} follow
+  a Gaussian distribution with \(\mu = 7.55\) and \(\sigma^2=0.60\)
+  based on the Gaussian distribution, what proportion of epsiodes have
+  an IMDB ranking of over 7.9? What is the actual proportion of episodes
+  with an IMDB ranking of over 7.9? Compare your results.
+\end{enumerate}
+
+\textbf{Type your answer here:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pnorm}\NormalTok{(}\FloatTok{7.9}\NormalTok{, }\DataTypeTok{mean=}\FloatTok{7.55}\NormalTok{, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(}\FloatTok{0.6}\NormalTok{), }\DataTypeTok{lower.tail=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3256892
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{episodes }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(IMDB.Ranking }\OperatorTok{>}\StringTok{ }\FloatTok{7.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 216 x 57
+##    Series Series.Name Season Episode IMDB.Ranking Title Star.date Air.date
+##    <chr>  <chr>        <dbl>   <dbl>        <dbl> <chr> <chr>     <chr>   
+##  1 TOS    The Origin~      1       4          8   The ~ 1704.2    29/9/66 
+##  2 TOS    The Origin~      1      10          8.2 The ~ 1512.2    10/11/66
+##  3 TOS    The Origin~      1      11          8.4 The ~ 3012.4    17/11/66
+##  4 TOS    The Origin~      1      12          8.3 The ~ 3013.1    24/11/66
+##  5 TOS    The Origin~      1      14          9   Bala~ 1709.2    15/12/66
+##  6 TOS    The Origin~      1      18          8.1 Arena 3045.6    19/1/67 
+##  7 TOS    The Origin~      1      19          8   Tomo~ 3113.2    26/1/67 
+##  8 TOS    The Origin~      1      22          8.9 Spac~ 3141.9    16/2/67 
+##  9 TOS    The Origin~      1      23          8.2 A Ta~ 3192.1    23/2/67 
+## 10 TOS    The Origin~      1      24          8   This~ 3417.3    2/3/67  
+## # ... with 206 more rows, and 49 more variables: Bechdel.Wallace.Test <lgl>,
+## #   Director <chr>, Writer.1 <chr>, Writer.2 <chr>, Writer.3 <chr>,
+## #   Writer.4 <chr>, Writer.5 <chr>, Writer.6 <chr>, Female.Director <lgl>,
+## #   Female.Writer.1 <lgl>, Female.Writer.2 <lgl>, Female.Writer.3 <lgl>,
+## #   Female.Writer.4 <lgl>, Female.Writer.5 <lgl>, Female.Writer.6 <lgl>,
+## #   Executive.Producer.1 <chr>, Executive.Producer.2 <chr>,
+## #   Executive.Producer.3 <chr>, Co.Executive.Producer.1 <chr>,
+## #   Co.Executive.Producer.2 <chr>, Co.Executive.Producer.3 <chr>,
+## #   Producer.1 <chr>, Producer.2 <chr>, Producer.3 <chr>, Producer.4 <chr>,
+## #   Co.Producer.1 <chr>, Co.Producer.2 <chr>, Co.Producer.3 <chr>,
+## #   Co.Producer.4 <chr>, Co.Producer.5 <chr>, Associate.Producer.1 <chr>,
+## #   Associate.Producer.2 <chr>, Supervising.Producer.1 <chr>,
+## #   Supervising.Producer.2 <chr>, Supervising.Producer.3 <chr>,
+## #   Co.Supervising.Producer.1 <chr>, Co.Supervising.Producer.2 <chr>,
+## #   Line.Producer <chr>, Coordinating.Producer <chr>,
+## #   Consulting.Producer.1 <chr>, Consulting.Producer.2 <chr>,
+## #   Female.Executive.Producer <lgl>, Female.Co.Executive.Producer <lgl>,
+## #   Female.Producer <lgl>, Female.Co.Producer <lgl>,
+## #   Female.Associate.Producer <lgl>, Female.Supervising.Producer <lgl>,
+## #   Female.Co.Supervising.Producer <lgl>, Female.Line.Producer <lgl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{216}\OperatorTok{/}\DecValTok{704}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3068182
+\end{verbatim}
+
+answer is 0.3256892 actual is 0.3068182
+
+\end{document}
