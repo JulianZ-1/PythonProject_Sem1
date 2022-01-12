@@ -1,0 +1,4 @@
+﻿  Source.cpp
+Source.obj : error LNK2019: unresolved external symbol _MPI_Init@8 referenced in function _main
+C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\\msmpi.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\Zhu\Desktop\important\github\PythonProject_Sem1\Year3\CAB401\Week7\MPI\Debug\MPI.exe : fatal error LNK1120: 1 unresolved externals
