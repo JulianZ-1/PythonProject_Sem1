@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    height: 100vh;
+    background-color: #282D35;
+}
+
+main{
+    color: white;
+    padding: 57px 27px;
+}
+
+
+.main_titile{
+    margin: 0;
+    font-size: 39px;
+    letter-spacing: -0.03em;
+
+}
+
+
+.main_facts_list{
+    margin-top: 45px;
+}
+
+
+.main_facts_list > li{
+    color: black;
+
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    background-color: #21222A;
+    height:180px;
+    padding: 30px 80px;
+   
+}
+.pizzaimg{
+    width: 150px;
+    margin-right: 40px;
+}
+.mainshit{
+    text-align: center;
+    color: #282D35;
+}
+
+
+.mainshitlist{
+    display: inline-block;
+    text-align: left;
+    font-weight: 500;
+    
+}
+
+.mainshitlistlist{
+
+    margin-bottom: 40px;
+}
+
+.logo_text, .crouse_title{
+    margin: 0px;
+}
+
+
+.logo_text{
+    color: #61DAFB;
+    margin-right: auto;
+    font-weight: 1000;
+    font-size: 50px;
+}
+
+.crouse_title{
+    color: #DEEBF8;
+    font-weight: 500;
+    font-size: 20px;
+}
